@@ -2,6 +2,7 @@ package xyz.webmc.maintenancemotdeagler.bukkit;
 
 import xyz.webmc.maintenancemotdeagler.base.IMaintenanceMOTDEaglerPlugin;
 import xyz.webmc.maintenancemotdeagler.base.MaintenanceMOTDEagler;
+import xyz.webmc.maintenancemotdeagler.base.Mirror;
 
 import eu.kennytv.maintenance.core.MaintenancePlugin;
 import eu.kennytv.maintenance.spigot.MaintenanceSpigotPlugin;
@@ -10,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.util.CachedServerIcon;
 
 public final class MaintenanceMOTDEaglerBukkit extends JavaPlugin implements IMaintenanceMOTDEaglerPlugin, Listener {
   @Override
@@ -25,7 +27,8 @@ public final class MaintenanceMOTDEaglerBukkit extends JavaPlugin implements IMa
   @Override
   public final byte[] getFavicon(final MaintenancePlugin plugin) {
     final MaintenanceSpigotPlugin sPlugin = (MaintenanceSpigotPlugin) plugin;
-    System.out.println(sPlugin.getFavicon().getClass().getName());
-    return null;
+    final CachedServerIcon favicon = sPlugin.getFavicon();
+    final String base64 = Mirror.access(favicon, "value");
+    return MaintenanceMOTDEagler.getDataURIBytes(base64);
   }
 }

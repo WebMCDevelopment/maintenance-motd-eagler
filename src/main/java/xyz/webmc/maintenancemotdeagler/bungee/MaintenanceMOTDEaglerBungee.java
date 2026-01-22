@@ -9,7 +9,6 @@ import net.lax1dude.eaglercraft.backend.server.api.bungee.event.EaglercraftMOTDE
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.event.EventHandler;
-import net.md_5.bungee.event.EventPriority;
 
 public final class MaintenanceMOTDEaglerBungee extends Plugin implements IMaintenanceMOTDEaglerPlugin, Listener {
   @Override
@@ -17,7 +16,7 @@ public final class MaintenanceMOTDEaglerBungee extends Plugin implements IMainte
     this.getProxy().getPluginManager().registerListener(this, this);
   }
 
-  @EventHandler(priority = EventPriority.HIGHEST)
+  @EventHandler(priority = 99)
   public final void onEaglerMOTD(final EaglercraftMOTDEvent event) {
     MaintenanceMOTDEagler.handleMOTD(this, event);
   }

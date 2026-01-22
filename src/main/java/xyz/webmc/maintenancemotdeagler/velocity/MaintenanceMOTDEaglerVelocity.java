@@ -11,7 +11,7 @@ import net.lax1dude.eaglercraft.backend.server.api.velocity.event.EaglercraftMOT
 
 @SuppressWarnings({ "deprecation" })
 public final class MaintenanceMOTDEaglerVelocity implements IMaintenanceMOTDEaglerPlugin {
-  @Subscribe(order = PostOrder.LAST)
+  @Subscribe(priority = 99, order = PostOrder.LAST)
   public final void onEaglerMOTD(final EaglercraftMOTDEvent event) {
     MaintenanceMOTDEagler.handleMOTD(this, event);
   }

@@ -21,7 +21,7 @@ import net.lax1dude.eaglercraft.backend.server.api.event.IEaglercraftMOTDEvent;
 import net.lax1dude.eaglercraft.backend.server.api.query.IMOTDConnection;
 
 @SuppressWarnings({ "rawtypes" })
-public class MaintenanceMOTDEagler {
+public final class MaintenanceMOTDEagler {
   private static final Maintenance api;
   private static final Settings settings;
   private static final MaintenancePlugin mt;

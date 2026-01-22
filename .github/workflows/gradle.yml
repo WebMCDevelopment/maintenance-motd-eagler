@@ -50,10 +50,6 @@ jobs:
             echo "EXISTS=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - id: mrck
-        run: |
-          echo "TOKEN=$([ -n "${{ secrets.MODRINTH_TOKEN }}" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
-
       - id: dist
         run: |
           echo "TAG_NAME=${{ format('v{0}{1}', steps.vars.outputs.VERS, steps.ghck.outputs.EXISTS == 'true' && format('+{0}', steps.vars.outputs.COMMIT_HASH) || '') }}" >> "$GITHUB_OUTPUT"

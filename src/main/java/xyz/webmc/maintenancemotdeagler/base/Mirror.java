@@ -3,8 +3,8 @@ package xyz.webmc.maintenancemotdeagler.base;
 import java.lang.reflect.Field;
 
 @SuppressWarnings({ "unchecked" })
-public class Mirror {
-  public static <T> T access(final Object obj, final String field) {
+public final class Mirror {
+  public static final <T> T access(final Object obj, final String field) {
     try {
       Class<?> c = obj.getClass();
       Field f = null;
@@ -31,7 +31,7 @@ public class Mirror {
     }
   }
 
-  private static boolean hasField(final Class<?> c, final String field) {
+  private static final boolean hasField(final Class<?> c, final String field) {
     try {
       c.getDeclaredField(field);
       return true;
